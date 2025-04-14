@@ -1,5 +1,5 @@
 [package]
-name = "peertube_api_sdk"
+name = "peertube-api-sdk"
 version = "0.1.0"
 edition = "2021"
 
