@@ -9,10 +9,10 @@ async fn main() {
         ..Default::default()
     });
 
-    let id = ApiV1VideosOwnershipIdAcceptPostIdParameter::ShortUuid("gyBRBTw4jPrGKQpKkNBWov".to_string());
+    let id = ApiV1VideosOwnershipIdAcceptPostIdParameter::Id(648);
     let response = video_api.get_video(id, None).await;
     match response {
-        Ok(response) => println!("{:#?}", response.is_live),
+        Ok(response) => println!("{:#?}", response.state),
         Err(err) => println!("{:#?}", err),
     }
 }

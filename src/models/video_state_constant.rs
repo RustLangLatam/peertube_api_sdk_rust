@@ -34,23 +34,23 @@ impl VideoStateConstant {
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum Id {
     #[serde(rename = "1")]
-    Variant1,
+    Variant1 = 1,
     #[serde(rename = "2")]
-    Variant2,
+    Variant2 = 2,
     #[serde(rename = "3")]
-    Variant3,
+    Variant3 = 3,
     #[serde(rename = "4")]
-    Variant4,
+    Variant4 = 4,
     #[serde(rename = "5")]
-    Variant5,
+    Variant5 = 5,
     #[serde(rename = "6")]
-    Variant6,
+    Variant6 = 6,
     #[serde(rename = "7")]
-    Variant7,
+    Variant7 = 7,
     #[serde(rename = "8")]
-    Variant8,
+    Variant8 = 8,
     #[serde(rename = "9")]
-    Variant9,
+    Variant9 = 9,
 }
 
 impl Default for Id {
