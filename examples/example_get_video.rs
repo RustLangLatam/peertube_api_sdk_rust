@@ -9,7 +9,7 @@ async fn main() {
         ..Default::default()
     });
 
-    let id = ApiV1VideosOwnershipIdAcceptPostIdParameter::Id(649);
+    let id = ApiV1VideosOwnershipIdAcceptPostIdParameter::Id(653);
     let response = video_api.get_video(id, None).await;
     match response {
         Ok(response) => println!("{:#?}", response.state),

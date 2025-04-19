@@ -251,7 +251,7 @@ pub enum UploadResumableInitError {
 }
 
 pub struct VideoApi {
-    configuration: Box<configuration::Configuration>,
+    pub(crate) configuration: Box<configuration::Configuration>,
 }
 
 impl VideoApi {
