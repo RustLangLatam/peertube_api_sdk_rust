@@ -38,13 +38,13 @@ pub enum RevokeOAuthTokenError {
 }
 
 pub struct SessionApi {
-    configuration: Box<configuration::Configuration>,
+    pub(crate) cfg: Box<configuration::Configuration>,
 }
 
 impl SessionApi {
     pub fn new(configuration: configuration::Configuration) -> Self {
         Self {
-            configuration: Box::new(configuration),
+            cfg: Box::new(configuration),
         }
     }
 
@@ -52,7 +52,7 @@ impl SessionApi {
     pub async fn get_o_auth_client(
         &self,
     ) -> Result<models::OAuthClient, Error<GetOAuthClientError>> {
-        let local_var_configuration = self.configuration.clone();
+        let local_var_configuration = self.cfg.clone();
 
         let local_var_client = &local_var_configuration.client;
 
@@ -98,7 +98,7 @@ impl SessionApi {
         password: Option<&str>,
         refresh_token: Option<&str>,
     ) -> Result<models::GetOAuthToken200Response, Error<GetOAuthTokenError>> {
-        let local_var_configuration = self.configuration.clone();
+        let local_var_configuration = self.cfg.clone();
 
         let local_var_client = &local_var_configuration.client;
 
@@ -153,7 +153,7 @@ impl SessionApi {
 
     /// Revokes your access token and its associated refresh token, destroying your current session.
     pub async fn revoke_o_auth_token(&self) -> Result<(), Error<RevokeOAuthTokenError>> {
-        let local_var_configuration = self.configuration.clone();
+        let local_var_configuration = self.cfg.clone();
 
         let local_var_client = &local_var_configuration.client;
 

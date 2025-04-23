@@ -251,13 +251,13 @@ pub enum UploadResumableInitError {
 }
 
 pub struct VideoApi {
-    pub(crate) configuration: Box<configuration::Configuration>,
+    pub(crate) cfg: Box<configuration::Configuration>,
 }
 
 impl VideoApi {
-    pub fn new(configuration: configuration::Configuration) -> VideoApi {
-        VideoApi {
-            configuration: Box::new(configuration),
+    pub fn new(configuration: configuration::Configuration) -> Self {
+        Self {
+            cfg: Box::new(configuration),
         }
     }
 
@@ -283,7 +283,7 @@ impl VideoApi {
         comments_policy: Option<models::VideoCommentsPolicySet>,
         download_enabled: Option<bool>,
     ) -> Result<models::VideoUploadResponse, Error<AddLive0Error>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -389,7 +389,7 @@ impl VideoApi {
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
         user_viewing_video: models::UserViewingVideo,
     ) -> Result<(), Error<AddViewError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -432,7 +432,7 @@ impl VideoApi {
         &self,
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
     ) -> Result<(), Error<ApiV1VideosIdStudioEditPost0Error>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -478,7 +478,7 @@ impl VideoApi {
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
         user_viewing_video: models::UserViewingVideo,
     ) -> Result<(), Error<ApiV1VideosIdWatchingPutError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -523,7 +523,7 @@ impl VideoApi {
         &self,
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
     ) -> Result<(), Error<DelVideoError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -567,7 +567,7 @@ impl VideoApi {
         &self,
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
     ) -> Result<(), Error<DeleteVideoSourceFileError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -630,7 +630,7 @@ impl VideoApi {
         exclude_already_watched: Option<bool>,
         search: Option<&str>,
     ) -> Result<models::VideoListResponse, Error<GetAccountVideos0Error>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -744,7 +744,7 @@ impl VideoApi {
     }
 
     pub async fn get_categories(&self) -> Result<Vec<String>, Error<GetCategoriesError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -781,7 +781,7 @@ impl VideoApi {
     }
 
     pub async fn get_languages(&self) -> Result<Vec<String>, Error<GetLanguagesError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -818,7 +818,7 @@ impl VideoApi {
     }
 
     pub async fn get_licences(&self) -> Result<Vec<String>, Error<GetLicencesError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -858,7 +858,7 @@ impl VideoApi {
         &self,
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
     ) -> Result<models::LiveVideoResponse, Error<GetLiveId0Error>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -903,7 +903,7 @@ impl VideoApi {
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
         x_peertube_video_password: Option<&str>,
     ) -> Result<models::VideoDetails, Error<GetVideoError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -969,7 +969,7 @@ impl VideoApi {
         exclude_already_watched: Option<bool>,
         search: Option<&str>,
     ) -> Result<models::VideoListResponse, Error<GetVideoChannelVideosError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1087,7 +1087,7 @@ impl VideoApi {
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
         x_peertube_video_password: Option<&str>,
     ) -> Result<String, Error<GetVideoDescError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1133,7 +1133,7 @@ impl VideoApi {
     pub async fn get_video_privacy_policies(
         &self,
     ) -> Result<Vec<String>, Error<GetVideoPrivacyPoliciesError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1173,7 +1173,7 @@ impl VideoApi {
         &self,
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
     ) -> Result<models::VideoSource, Error<GetVideoSourceError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1235,7 +1235,7 @@ impl VideoApi {
         exclude_already_watched: Option<bool>,
         search: Option<&str>,
     ) -> Result<models::VideoListResponse, Error<GetVideosError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1349,7 +1349,7 @@ impl VideoApi {
         &self,
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
     ) -> Result<models::ListVideoStoryboards200Response, Error<ListVideoStoryboardsError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1408,7 +1408,7 @@ impl VideoApi {
         schedule_update: Option<models::VideoScheduledUpdate>,
         video_passwords: Option<Vec<String>>,
     ) -> Result<(), Error<PutVideoError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1531,7 +1531,7 @@ impl VideoApi {
         content_length: f64,
         body: Option<std::path::PathBuf>,
     ) -> Result<(), Error<ReplaceVideoSourceResumableError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1584,7 +1584,7 @@ impl VideoApi {
         upload_id: &str,
         content_length: f64,
     ) -> Result<(), Error<ReplaceVideoSourceResumableCancelError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1635,7 +1635,7 @@ impl VideoApi {
         x_upload_content_type: &str,
         video_replace_source_request_resumable: Option<models::VideoReplaceSourceRequestResumable>,
     ) -> Result<(), Error<ReplaceVideoSourceResumableInitError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1687,7 +1687,7 @@ impl VideoApi {
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
         x_peertube_video_password: Option<&str>,
     ) -> Result<models::VideoTokenResponse, Error<RequestVideoTokenError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1764,7 +1764,7 @@ impl VideoApi {
         duration_min: Option<i32>,
         duration_max: Option<i32>,
     ) -> Result<models::VideoListResponse, Error<SearchVideos0Error>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1927,7 +1927,7 @@ impl VideoApi {
         id: models::ApiV1VideosOwnershipIdAcceptPostIdParameter,
         live_video_update: Option<models::LiveVideoUpdate>,
     ) -> Result<(), Error<UpdateLiveId0Error>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -1993,7 +1993,7 @@ impl VideoApi {
         previewfile: Option<std::path::PathBuf>,
         video_passwords: Option<Vec<String>>,
     ) -> Result<models::VideoUploadResponse, Error<UploadLegacyError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -2118,7 +2118,7 @@ impl VideoApi {
         content_length: f64,
         body: Option<std::path::PathBuf>,
     ) -> Result<models::VideoUploadResponse, Error<UploadResumableError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -2170,7 +2170,7 @@ impl VideoApi {
         upload_id: &str,
         content_length: f64,
     ) -> Result<(), Error<UploadResumableCancelError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
@@ -2220,7 +2220,7 @@ impl VideoApi {
         x_upload_content_type: &str,
         video_upload_request_resumable: Option<models::VideoUploadRequestResumable>,
     ) -> Result<(), Error<UploadResumableInitError>> {
-        let local_var_configuration = &self.configuration;
+        let local_var_configuration = &self.cfg;
 
         let local_var_client = &local_var_configuration.client;
 
